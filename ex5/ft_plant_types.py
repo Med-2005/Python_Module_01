@@ -51,7 +51,6 @@ class Vegetable(Plant):
 
 if __name__ == "__main__":
     print("=== Garden Plant Types ===")
-    print("\n")
 rose = Flower("Rose", 30, 25, "red")
 tulip = Flower("Tulip", 20, 15, "yellow")
 oak = Tree("Oak", 1825, 500, 50)
@@ -63,13 +62,11 @@ print(
     f"{rose.name} (Flower): {rose.height}, {rose.age} days, {rose.color} color"
 )
 rose.bloom()
-print("\n")
 print(
     f"{oak.name} (Tree): {oak.height}cm, {oak.age} days, "
     f"{oak.trunk_diametre}cm diametre"
 )
 oak.produce_shade()
-print("\n")
 print(
     f"{tomato.name}, (Vegetable): {tomato.height}cm, "
     f"{tomato.age}, {tomato.harvest_season} harvest"
