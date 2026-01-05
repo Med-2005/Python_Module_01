@@ -32,7 +32,9 @@ class GardenManager:
 
 
 my_garden = GardenManager("Mohamed")
+x = GardenManager("hamid")
 rose = Plant("Rose", 25)
 my_garden.add_plants(rose)
+sunflower = Plant("Sunflower", 90)
+my_garden.add_plants(sunflower)
 print(GardenManager.total_gardens)
-sunflower = 
