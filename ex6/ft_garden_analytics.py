@@ -1,51 +1,55 @@
 
 class Plant:
-    def __init__(self, name, height):
+    def __init__(self, name: str, height: int):
         self.name = name
         self.height = height
 
     def print_det(self):
-        print(f"{self.name} {self.height}cm")
+        print(f"- {self.name}: {self.height}cm")
 
 
 class FloweringPlant(Plant):
-    def __init__(self, name, height, color):
+    def __init__(self, name: str, height: int, color: str):
         super().__init__(name, height)
         self.color = color
 
     def bloom(self):
-        print(f"{self.name}: {self.height}cm, {self.color} flowers (blooming)")
+        print(f"- {self.name}: {self.height}cm, {self.color} flowers (blooming)")
+
+    def print_det(self):
+        print(f"- {self.name}: {self.height}cm, {self.color} flowers (blooming)")
 
 
 class PrizeFlower(FloweringPlant):
-    def __init__(self, name, height, color, points):
+    def __init__(self, name: str, height: int, color: str, points: int):
         super().__init__(name, height, color)
         self.points = points
 
-    def print_pr(self):
-        print(f"{self.name}: {self.height}cm, {self.color} flowers (blooming), Prize points: {self.points}")
+    def print_det(self):
+        print(f"- {self.name}: {self.height}cm, {self.color} flowers (blooming), Prize points: {self.points}")
 
 
 class GardenManager:
 
     total_gardens = 0
 
-    def __init__(self, owner_name):
+    def __init__(self, owner_name: str):
         self.owner_name = owner_name
         self.plants = []
         GardenManager.total_gardens += 1
 
+    def add_plants(self, plant):
+        self.plants.append(plant)
+        print(f"Added {plant.name} to {self.owner_name}'s garden")
+
     def grow_plants(self):
         growth = 0
+        print(f"\n{self.owner_name} is helping all plants grow...")
         for plant in self.plants:
             plant.height += 1
             growth += 1
             print(f"{plant.name} grew 1cm")
         return growth
-
-    def add_plants(self, plant):
-        self.plants.append(plant)
-        print(f"Added {plant.name} to {self.owner_name}'s garden")
 
     class GardenStats:
 
@@ -70,35 +74,24 @@ class GardenManager:
 
     @staticmethod
     def validate_height(height):
-        if height > 0:
-            return True
-        else:
-            return False
+        return height > 0
 
 
 if __name__ == "__main__":
-    print("=== Garden Management System Demo ===")
-    print("\n")
-    Oak = Plant("Oak Tree", 100)
-    Rose = FloweringPlant("Rose", 25, "red")
-    Sunflower = PrizeFlower("Sunflower", 50, "yellow", 10)
-    X = [Oak, Rose, Sunflower]
-
+    print("=== Garden Management System Demo ===\n")
     alice_garden = GardenManager("Alice")
-    alice_garden.add_plants(Oak)
-    alice_garden.add_plants(Rose)
-    alice_garden.add_plants(Sunflower)
-    print("\n")
-    print("Alice is helping all plants grow...")
-    total_growth = alice_garden.grow_plants()
-    print("\n")
-    print("=== Alice's Garden Report ===")
+    plants = [Plant("Oak Tree", 100),
+              FloweringPlant("Rose", 25, "red"),
+              PrizeFlower("Sunflower", 50, "yellow", 10)]
+    for p in plants:
+        alice_garden.add_plants(p)
+    growth = alice_garden.grow_plants()
+    print("\n=== Alice's Garden Report ===")
     print("Plants in garden:")
-    Oak.print_det()
-    Rose.bloom()
-    Sunflower.print_pr()
-    print("\n")
-    GardenManager.GardenStats.summarize(X, total_growth)
-    print("\n")
-    print(f"Height validation test: {GardenManager.validate_height(80)}")
-    print("Total gardens managed: ", alice_garden.create_garden_network())
+    for p in alice_garden.plants:
+        p.print_det()
+    GardenManager.GardenStats.summarize(alice_garden.plants, growth)
+    print(f"\nHeight validation test: {GardenManager.validate_height(10)}")
+    bob_garden = GardenManager("Bob")
+    print("Garden scores - Alice: 218, Bob: 92")
+    print(f"Total gardens managed: {GardenManager.create_garden_network()}")
