@@ -1,51 +1,51 @@
 
 class Plant:
-    """A general class to represent any plant in the garden."""
+    # A general class to represent any plant in the garden.
 
     def __init__(self, name: str, age: int, height: int):
-        """Set the name, age, and height for a new plant."""
+        # Set the name, age, and height for a new plant.
         self.name = name
         self.height = height
         self.age = age
 
 
 class Flower(Plant):
-    """A type of plant that has a color and can bloom."""
+    # A type of plant that has a color and can bloom.
 
     def __init__(self, name: str, age: int, height: int, color: str):
-        """Create a flower and use the Plant class to set basic info."""
+        # Create a flower and use the Plant class to set basic info.
         super().__init__(name, age, height)
         self.color = color
 
     def bloom(self) -> None:
-        """Print a message saying the flower is blooming."""
+        # Print a message saying the flower is blooming.
         print(f"{self.name} is blooming beautifully!")
 
 
 class Tree(Plant):
-    """A type of plant that has a trunk and provides shade."""
+    # A type of plant that has a trunk and provides shade.
     def __init__(self, name: str, age: int, height: int, trunk_diametre: int):
-        """Create a tree and use the Plant class to set basic info."""
+        # Create a tree and use the Plant class to set basic info.
         super().__init__(name, age, height)
         self.trunk_diametre = trunk_diametre
 
     def produce_shade(self) -> None:
-        """Calculate and print how much shade the tree gives."""
+        # Calculate and print how much shade the tree gives.
         shade_area = self.trunk_diametre * 1.56
         print(f"{self.name} provides {shade_area} square meters of shade")
 
 
 class Vegetable(Plant):
-    """A type of plant grown for food with nutritional value."""
+    # A type of plant grown for food with nutritional value.
     def __init__(self, name: str, age: int, height: int,
                  harvest_season: str, nutritional_value: str):
-        """Create a vegetable and use the Plant class to set basic info."""
+        # Create a vegetable and use the Plant class to set basic info.
         super().__init__(name, age, height)
         self.harvest_season = harvest_season
         self.nutritional_value = nutritional_value
 
     def print_details(self) -> None:
-        """Print what vitamins or nutrients the vegetable has."""
+        # Print what vitamins or nutrients the vegetable has.
         print(f"{self.name} is rich in {self.nutritional_value}")
 
 
