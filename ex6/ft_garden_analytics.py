@@ -7,7 +7,7 @@ class Plant:
 
     # Function to print basic plant details
     def print_det(self):
-        print(f"- {self.name}: {self.height}cm")
+        print(f"- {self.name}: {self.height}cm", end="")
 
 
 # A specific type of plant that has flowers (Inherits from Plant)
@@ -20,8 +20,8 @@ class FloweringPlant(Plant):
 
     # Update (Override) the print function to include color
     def print_det(self):
-        print(f"- {self.name}: {self.height}cm, "
-              f"{self.color} flowers (blooming)")
+        super().print_det()
+        print(f"{self.color} flowers (blooming)", end="")
 
 
 # A special flowering plant that wins prizes (Inherits from FloweringPlant)
@@ -96,12 +96,6 @@ class GardenManager:
         return height > 0
 
 
-def global_garden_report(owner):
-    print(f"--- Global report for {owner.owner_name} ---")
-    for p in owner.plants:
-        p.print_det()
-
-
 # --- Main Program Execution ---
 if __name__ == "__main__":
     print("=== Garden Management System Demo ===\n")
@@ -127,6 +121,7 @@ if __name__ == "__main__":
     print("Plants in garden:")
     for p in alice_garden.plants:
         p.print_det()
+        print("")
 
     # 6. Show stats using the nested class
     GardenManager.GardenStats.summarize(alice_garden.plants, growth)
@@ -137,5 +132,3 @@ if __name__ == "__main__":
     # 8. Create another garden to see the total count increase
     bob_garden = GardenManager("Bob")
     print(f"Total gardens managed: {GardenManager.create_garden_network()}")
-    print("------------------------------")
-    global_garden_report(alice_garden)
