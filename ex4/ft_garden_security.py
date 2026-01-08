@@ -17,7 +17,7 @@ class SecurePlant:
         return self.__height
 
     def set_height(self, height: int):
-        # Controlled way to modify height with validation.
+        # Controlled way to modify height with validation
         if height >= 0:
             self.__height = height
             print(f"Height updated: {height}cm [OK]")
@@ -30,7 +30,7 @@ class SecurePlant:
         return self.__age
 
     def set_age(self, age: int):
-        # Controlled way to modify age with validation.
+        # Controlled way to modify age with validation
         if age >= 0:
             self.__age = age
             print(f"Age updated: {age} days [OK]")
@@ -39,7 +39,7 @@ class SecurePlant:
             print("Security: Negative age rejected")
 
     def print_info(self):
-        # Print the current state of the plant.
+        # Print the current state of the plant
         print(
             f"Current plant: {self.__name}"
             f" ({self.__height}cm, {self.__age} days)"
