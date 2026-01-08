@@ -13,7 +13,7 @@ class Flower(Plant):
     # A type of plant that has a color and can bloom.
 
     def __init__(self, name: str, age: int, height: int, color: str):
-        # Create a flower and use the Plant class to set basic info.
+        # Create a flower and use the Plant class to set basic info
         super().__init__(name, age, height)
         self.color = color
 
