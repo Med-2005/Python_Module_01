@@ -85,6 +85,7 @@ Creates different plant objects and shows their behavior.
 """
 if __name__ == "__main__":
     print("=== Garden Plant Types ===")
+    print("")
     rose = Flower("Rose", 30, 25, "red")
     tulip = Flower("Tulip", 20, 15, "yellow")
     oak = Tree("Oak", 1825, 500, 50)
@@ -93,17 +94,19 @@ if __name__ == "__main__":
     carrot = Vegetable("Carrot", 70, 60, "spring", "vitamin A")
 
     print(
-        f"{rose.name} (Flower): {rose.height}, "
+        f"{rose.name} (Flower): {rose.height}cm, "
         f"{rose.age} days, {rose.color} color")
 
     rose.bloom()
+    print("")
     print(
         f"{oak.name} (Tree): {oak.height}cm, {oak.age} days, "
         f"{oak.trunk_diametre}cm diametre"
     )
     oak.produce_shade()
+    print("")
     print(
-        f"{tomato.name}, (Vegetable): {tomato.height}cm, "
-        f"{tomato.age}, {tomato.harvest_season} harvest"
+        f"{tomato.name} (Vegetable): {tomato.height}cm, "
+        f"{tomato.age} days, {tomato.harvest_season} harvest"
     )
     tomato.print_details()
