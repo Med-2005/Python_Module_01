@@ -50,4 +50,4 @@ if __name__ == "__main__":
     print("=== Garden Plant Registry ===")
 
     for p in plants:
-        Plant.print_det(p)
+        p.print_det()
