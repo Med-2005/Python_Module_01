@@ -1,11 +1,20 @@
+"""
+This program demonstrates a secure plant class.
+It protects plant data using encapsulation and validation.
+"""
+
 
 class SecurePlant:
-    # A plant class that protects data integrity through encapsulation.
+    """
+    A plant class that protects data integrity
+    by controlling access to its attributes.
+    """
 
     def __init__(self, name: str, height: int, age: int):
-        # Initializes a SecurePlant instance.
+        """
+        Create a SecurePlant object with validated data.
+        """
         self.__name = name
-        # We initialize with a default value and use setters to validate
         self.__height = 0
         self.__age = 0
         print(f"Plant created: {self.__name}")
@@ -13,11 +22,15 @@ class SecurePlant:
         self.set_age(age)
 
     def get_height(self) -> int:
-        # Safe way to access plant height data.
+        """
+        Return the plant height safely.
+        """
         return self.__height
 
     def set_height(self, height: int):
-        # Controlled way to modify height with validation
+        """
+        Set the plant height if the value is valid.
+        """
         if height >= 0:
             self.__height = height
             print(f"Height updated: {height}cm [OK]")
@@ -26,11 +39,15 @@ class SecurePlant:
             print("Security: Negative height rejected")
 
     def get_age(self) -> int:
-        # Safe way to access plant age data
+        """
+        Return the plant age safely.
+        """
         return self.__age
 
     def set_age(self, age: int):
-        # Controlled way to modify age with validation
+        """
+        Set the plant age if the value is valid.
+        """
         if age >= 0:
             self.__age = age
             print(f"Age updated: {age} days [OK]")
@@ -39,13 +56,19 @@ class SecurePlant:
             print("Security: Negative age rejected")
 
     def print_info(self):
-        # Print the current state of the plant
+        """
+        Print the current plant information.
+        """
         print(
             f"Current plant: {self.__name}"
             f" ({self.__height}cm, {self.__age} days)"
         )
 
 
+"""
+Program entry point.
+Tests the SecurePlant class behavior.
+"""
 if __name__ == "__main__":
     print("=== Garden Security System ===")
     rose = SecurePlant("Rose", 25, 30)

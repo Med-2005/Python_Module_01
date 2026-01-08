@@ -1,23 +1,31 @@
-# The main part of our program
-def main():
-    # Set the information for the plant
-    name = "Rose"      # The name of the flower
-    height = 25        # How tall it is (cm)
-    age = 30           # How old it is (days)
+"""
+This program displays basic information about a plant
+such as its name, height, and age.
+"""
 
-    # Print the start message
+
+def main():
+    """
+    Main function of the program.
+
+    It sets the plant information and prints it
+    in a simple formatted way.
+    """
+    name = "Rose"
+    height = 25
+    age = 30
+
     print("=== Welcome to My Garden ===")
 
-    # Show the plant info on the screen
     print(f"Plant: {name}")
     print(f"Height: {height}cm")
     print(f"Age: {age} days")
-
-    # Print the finish message
     print("=== End of Program ===")
 
 
-# This line tells Python to start the program here
-
+"""
+This condition ensures that the main function
+runs only when the file is executed directly.
+"""
 if __name__ == "__main__":
     main()

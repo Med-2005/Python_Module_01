@@ -1,41 +1,70 @@
-# Blueprint for a plant with growth actions
+"""
+This program models a Plant that can grow over time.
+It simulates daily aging and height growth.
+"""
+
+
 class Plant:
+    """
+    Blueprint for a Plant with growth actions.
+
+    Attributes:
+        name (str): Name of the plant
+        height (int): Height in centimeters
+        ag (int): Age in days
+    """
+
     def __init__(self, name, height, age):
-        self.name = name      # Name of the plant
-        self.height = height  # Height in cm
-        self.age = age        # Age in days
+        """
+        Initializes a new Plant object.
 
-    # Method to increase age by 1
-    def plant_age(self):
-        self.age += 1
+        Args:
+            name (str): Plant name
+            height (int): Initial height in cm
+            age (int): Initial age in days
+        """
+        self.name = name
+        self.height = height
+        self.ag = age
 
-    # Method to increase height by 1
-    def plant_height(self):
+    def age(self):
+        """
+        Increases the plant's age by one day.
+        """
+        self.ag += 1
+
+    def grow(self):
+        """
+        Increases the plant's height by one centimeter.
+        """
         self.height += 1
 
-    # Method to return formatted info string
     def get_info(self):
-        return f"{self.name}: {self.height}cm, {self.age} days old"
+        """
+        Returns a formatted string describing the plant.
+        """
+        return f"{self.name}: {self.height}cm, {self.ag} days old"
 
 
+"""
+Program entry point.
+Creates a Plant instance and simulates its growth over several days.
+"""
 if __name__ == "__main__":
-    # Create an instance (Object)
+
     rose = Plant("Rose", 25, 30)
 
     print("=== Day 1 ===")
     print(rose.get_info())
 
-    # Save the initial height to calculate growth later
     start_height = rose.height
 
-    # Simulate growth over 6 days (to reach Day 7)
     for i in range(6):
-        rose.plant_age()
-        rose.plant_height()
+        rose.age()
+        rose.grow()
 
     print("=== Day 7 ===")
     print(rose.get_info())
 
-    # Calculation showing state change
     growth = rose.height - start_height
     print(f"Growth this week: +{growth}cm")

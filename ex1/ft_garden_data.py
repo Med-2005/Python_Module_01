@@ -1,21 +1,46 @@
-# Create a blueprint for a Plant object
-class Plant:
-    # This runs when we create a new plant
-    def __init__(self, name, height, age):
-        self.name = name      # Set the plant's name
-        self.height = height  # Set the plant's height
-        self.age = age        # Set the plant's age
+"""
+This program demonstrates how to create a Plant class,
+store multiple Plant objects in a list, and display
+their details.
+"""
 
-    # A function inside the class to print plant details
+
+class Plant:
+    """
+    A blueprint for creating Plant objects.
+
+    Attributes:
+        name (str): The name of the plant
+        height (int): The height of the plant in centimeters
+        age (int): The age of the plant in days
+    """
+
+    def __init__(self, name, height, age):
+        """
+        Initializes a new Plant instance.
+
+        Args:
+            name (str): Plant name
+            height (int): Plant height in cm
+            age (int): Plant age in days
+        """
+        self.name = name
+        self.height = height
+        self.age = age
+
     def print_det(self):
+        """
+        Prints the details of the plant.
+        """
         print(f"{self.name}: {self.height}cm, {self.age} days old")
 
 
-# Main program starts here
-
+"""
+Entry point of the program.
+Creates a list of Plant objects and displays their details.
+"""
 if __name__ == "__main__":
 
-    # Store multiple plant objects in a list
     plants = [
         Plant("Rose", 25, 30),
         Plant("Sunflower", 80, 45),
@@ -24,7 +49,5 @@ if __name__ == "__main__":
 
     print("=== Garden Plant Registry ===")
 
-    # Loop through each plant in the list
     for p in plants:
-        # Call the print function for each plant
         Plant.print_det(p)
