@@ -18,12 +18,12 @@ class Flower(Plant):
         self.color = color
 
     def bloom(self) -> None:
-        # Print a message saying the flower is blooming.
+        # Print a message saying the flower is blooming
         print(f"{self.name} is blooming beautifully!")
 
 
 class Tree(Plant):
-    # A type of plant that has a trunk and provides shade.
+    # A type of plant that has a trunk and provides shade
     def __init__(self, name: str, age: int, height: int, trunk_diametre: int):
         # Create a tree and use the Plant class to set basic info.
         super().__init__(name, age, height)
