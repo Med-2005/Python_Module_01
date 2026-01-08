@@ -1,6 +1,8 @@
 
 class Plant:
 
+    # class_attribute
+
     total_plants = 0
 
     def __init__(self, name, height, age):
@@ -14,17 +16,14 @@ class Plant:
 
 
 if __name__ == "__main__":
-
-    Rose = Plant("Rose", 25, 30)
-    Oak = Plant("Oak", 200, 365)
-    Cactus = Plant("Cactus", 5, 90)
-    Sunflower = Plant("Sunflower", 80, 45)
-    Fern = Plant("Fern", 15, 120)
-
-    Rose.print_det()
-    Oak.print_det()
-    Cactus.print_det()
-    Sunflower.print_det()
-    Fern.print_det()
-    print("\n")
-    print(f"Total plants created: {Plant.total_plants}")
+    print("=== Plant Factory Output ===")
+    plants = [
+        Plant("Rose", 25, 30),
+        Plant("Oak", 200, 365),
+        Plant("Cactus", 5, 90),
+        Plant("Sunflower", 80, 45),
+        Plant("Fern", 15, 120)
+        ]
+    for p in plants:
+        p.print_det()
+    print(f"\nTotal plants created: {Plant.total_plants}")

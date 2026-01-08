@@ -48,9 +48,8 @@ class SecurePlant:
 
 if __name__ == "__main__":
     print("=== Garden Security System ===")
-    rose = SecurePlant("Rose", -25, 30)
-    rose.__height = 5
-    print(rose.__height)
-    # rose.set_height(-5)
-
+    rose = SecurePlant("Rose", 25, 30)
+    print("\n")
+    rose.set_height(-5)
+    print("\n")
     rose.print_info()

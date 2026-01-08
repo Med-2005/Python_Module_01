@@ -18,11 +18,6 @@ class FloweringPlant(Plant):
         # Add a new property: flower color
         self.color = color
 
-    # Special action only for flowering plants
-    def bloom(self):
-        print(f"- {self.name}: {self.height}cm, "
-              f"{self.color} flowers (blooming)")
-
     # Update (Override) the print function to include color
     def print_det(self):
         print(f"- {self.name}: {self.height}cm, "
@@ -45,7 +40,7 @@ class PrizeFlower(FloweringPlant):
 
 # The main class to manage the garden
 class GardenManager:
-    # A shared variable to count how many gardens exist in total
+    # A shared class attribute to count how many gardens exist in total
     total_gardens = 0
 
     def __init__(self, owner_name: str):
@@ -101,6 +96,12 @@ class GardenManager:
         return height > 0
 
 
+def global_garden_report(owner):
+    print(f"--- Global report for {owner.owner_name} ---")
+    for p in owner.plants:
+        p.print_det()
+
+
 # --- Main Program Execution ---
 if __name__ == "__main__":
     print("=== Garden Management System Demo ===\n")
@@ -114,7 +115,6 @@ if __name__ == "__main__":
         FloweringPlant("Rose", 25, "red"),
         PrizeFlower("Sunflower", 50, "yellow", 10)
     ]
-
     # 3. Add the plants to Alice's garden
     for p in plants:
         alice_garden.add_plants(p)
@@ -137,3 +137,5 @@ if __name__ == "__main__":
     # 8. Create another garden to see the total count increase
     bob_garden = GardenManager("Bob")
     print(f"Total gardens managed: {GardenManager.create_garden_network()}")
+    print("------------------------------")
+    global_garden_report(alice_garden)
