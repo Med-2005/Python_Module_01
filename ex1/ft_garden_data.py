@@ -15,7 +15,7 @@ class Plant:
         age (int): The age of the plant in days
     """
 
-    def __init__(self, name, height, age):
+    def __init__(self, name: str, height: int, age: int):
         """
         Initializes a new Plant instance.
 

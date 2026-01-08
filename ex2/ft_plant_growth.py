@@ -14,7 +14,7 @@ class Plant:
         ag (int): Age in days
     """
 
-    def __init__(self, name, height, age):
+    def __init__(self, name: str, height: int, age: int):
         """
         Initializes a new Plant object.
 
